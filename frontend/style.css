@@ -1,0 +1,287 @@
+/* ------------------------------------------------------
+   GLOBAL RESET & BODY
+------------------------------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    color: #222;
+    background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+}
+
+/* Background Overlay Image */
+#bgImage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('fitness-bg2.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    z-index: -1;
+}
+
+.hidden-section {
+    display: none;
+}
+
+/* ------------------------------------------------------
+   HEADER
+------------------------------------------------------ */
+header {
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid #ff7f50;
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 8px;
+}
+
+nav button {
+    margin: 0 5px;
+    padding: 10px 18px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #ff7f50;
+    color: white;
+    font-weight: bold;
+}
+
+nav button:hover,
+nav button.active {
+    background: #ff4500;
+}
+
+nav .logout {
+    background: #d32f2f;
+}
+nav .logout:hover {
+    background: #b71c1c;
+}
+
+/* ------------------------------------------------------
+   MAIN & SECTIONS
+------------------------------------------------------ */
+main {
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+section {
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* ------------------------------------------------------
+   DASHBOARD CARDS
+------------------------------------------------------ */
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    background: #ff7f50;
+    color: white;
+    flex: 1 1 30%;
+    margin: 10px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 1.3em;
+}
+
+.card p {
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+.progress-bar div {
+    height: 12px;
+    background: linear-gradient(to right, #ffcc33, #ff3300);
+    width: 0%;
+    border-radius: 6px;
+    transition: width 1s ease-in-out;
+}
+
+/* ------------------------------------------------------
+   INPUTS & BUTTONS
+------------------------------------------------------ */
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+    padding: 12px;
+    width: 70%;
+    margin-right: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    padding: 12px 18px;
+    background: #32cd32;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #228b22;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+}
+
+/* List items in Nutrition/Exercise */
+.list p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.list button {
+    background: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+.list button:hover {
+    background: #cc0000;
+}
+
+/* ------------------------------------------------------
+   AUTH FORMS
+------------------------------------------------------ */
+.auth-card {
+    width: 85%;
+    max-width: 420px;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+}
+
+.auth-card input {
+    width: 78%;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.auth-card .btn {
+    width: 55%;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.auth-card p {
+    margin-top: 18px;
+    cursor: pointer;
+    color: #ff4500;
+    font-weight: bold;
+}
+
+/* ------------------------------------------------------
+   INPUT GROUP
+------------------------------------------------------ */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* ------------------------------------------------------
+   EXERCISE SECTION (CUSTOM)
+------------------------------------------------------ */
+#exercise h2,
+#exercise h3 {
+    color: #333;
+}
+
+#exercise .card {
+    background: #ffffff;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#exercise .card input {
+    width: 100%;
+    margin: 8px 0;
+    border-radius: 8px;
+}
+
+#exercise .card button {
+    background: #007bff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+}
+#exercise .card button:hover {
+    background: #0056b3;
+}
+
+#exerciseList p {
+    background: #f4f8ff;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+}
+
+#totalVolume {
+    color: #007bff;
+    font-weight: bold;
+    font-size: 18px;
+}

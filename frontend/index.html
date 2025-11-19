@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Auth Section -->
+<section id="authSection">
+  <div id="loginCard" class="auth-card">
+    <h2>Login</h2>
+    <input type="text" id="loginUsername" placeholder="Username">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <button onclick="loginUser()" class="btn">Login</button>
+    <p>Or <span onclick="showRegister()">Register</span></p>
+  </div>
+
+  <div class="auth-card hidden-section" id="registerCard">
+    <h2>Register</h2>
+    <input type="text" id="regName" placeholder="Name">
+    <input type="text" id="regUsername" placeholder="Username">
+    <input type="password" id="regPassword" placeholder="Password">
+    <input type="number" id="regAge" placeholder="Age">
+    <input type="number" id="regWeight" placeholder="Weight (kg)">
+    <input type="number" id="regHeight" placeholder="Height (cm)">
+    <button onclick="registerUser()" class="btn">Register</button>
+    <p>Already have account? <span onclick="showLogin()">Login</span></p>
+  </div>
+</section>
+
+<!-- Main App -->
+<header class="hidden-section" id="appHeader">
+  <h1>💪 Fitness Tracker</h1>
+  <nav>
+    <button onclick="showDashboard()" class="nav-btn active">Dashboard</button>
+    <button onclick="showExercise()" class="nav-btn">Exercise</button>
+    <button onclick="showNutrition()" class="nav-btn">Nutrition</button>
+    <button onclick="showProfile()" class="nav-btn">Profile</button>
+    <button onclick="logout()" class="nav-btn logout">Logout</button>
+  </nav>
+</header>
+
+<main id="mainApp" class="hidden-section">
+
+  <!-- DASHBOARD -->
+  <section id="dashboard">
+    <h2>Dashboard</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Calories</h3>
+        <p id="calories">0 kcal</p>
+        <div class="progress-bar"><div id="calorieBar"></div></div>
+      </div>
+      <div class="card">
+        <h3>Exercise</h3>
+        <p id="exerciseTotal">0 mins</p>
+        <div class="progress-bar"><div id="exerciseBar"></div></div>
+      </div>
+      <div class="card">
+        <h3>Progress</h3>
+        <p id="progress">0%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXERCISE TRACKER -->
+  <section id="exercise" class="hidden-section">
+    <h2>Exercise Tracker</h2>
+
+    <!-- Add New Exercise -->
+    <div class="card">
+      <h3>Add Exercise</h3>
+      <input type="text" id="exName" placeholder="Exercise name (e.g., Push Ups)">
+      <input type="number" id="exSets" placeholder="Sets">
+      <input type="number" id="exReps" placeholder="Reps">
+      <input type="number" id="exWeight" placeholder="Weight (optional)">
+      <button onclick="addSetRepExercise()" class="btn">Add Exercise</button>
+    </div>
+
+    <!-- Exercise List -->
+    <div class="card">
+      <h3>Today's Exercises</h3>
+      <div id="exerciseList"></div>
+    </div>
+
+    <!-- Progress Summary -->
+    <div class="card">
+      <h3>Progress Summary</h3>
+      <p>Total Volume: <span id="totalVolume">0</span> kg</p>
+      <button onclick="resetExercise()" class="btn">Reset Today</button>
+    </div>
+  </section>
+
+  <!-- NUTRITION -->
+  <section id="nutrition" class="hidden-section">
+    <h2>Nutrition</h2>
+    <div class="input-group">
+      <input type="text" id="mealInput" placeholder="Enter meal">
+      <button onclick="startVoiceMeal()" class="btn">🎤</button>
+      <button onclick="addMeal()" class="btn">Add Meal</button>
+    </div>
+    <div id="mealList" class="list"></div>
+  </section>
+
+  <!-- PROFILE -->
+  <section id="profile" class="hidden-section">
+    <h2>Profile</h2>
+    <div id="profileInfo">
+      <p>Username: <strong id="profileUsername"></strong></p>
+      <p>Name: <strong id="profileName"></strong></p>
+      <p>Age: <strong id="profileAge"></strong></p>
+      <p>Weight: <strong id="profileWeight"></strong> kg</p>
+      <p>Height: <strong id="profileHeight"></strong> cm</p>
+    </div>
+
+    <h3>Edit Profile</h3>
+    <input type="text" id="editName" placeholder="Name">
+    <input type="number" id="editAge" placeholder="Age">
+    <input type="number" id="editWeight" placeholder="Weight">
+    <input type="number" id="editHeight" placeholder="Height">
+    <button onclick="updateProfile()" class="btn">Update Profile</button>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
