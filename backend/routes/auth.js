@@ -12,8 +12,9 @@ router.post("/register", async (req, res) => {
         console.log(`[AUTH] User registered successfully: ${username}`);
         res.json({ message: "User registered successfully" });
     } catch (err) {
-        console.error(`[AUTH] Register error: ${err.message}`);
-        res.status(400).json({ error: err.message.includes("duplicate") ? "Username already exists" : "Registration failed" });
+        console.error(`[AUTH] Register error - ${err.code || err.name}: ${err.message}`);
+        const errorMsg = err.code === 11000 ? "Username already exists" : err.message;
+        res.status(400).json({ error: errorMsg });
     }
 });
 
